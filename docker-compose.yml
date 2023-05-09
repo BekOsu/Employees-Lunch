@@ -1,0 +1,39 @@
+version: "3.9"
+   
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    networks:
+      - django_network
+    environment:
+      - POSTGRES_DB=myproject
+      - POSTGRES_USER=myprouser
+      - POSTGRES_PASSWORD=pass123456A@
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+
+  lunch_decision:
+    build: ./lunch_decision
+    command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./lunch_decision:/lunch_decision
+    ports:
+      - "8000:8000"
+    restart: always
+    environment:
+      - POSTGRES_DB=myproject
+      - POSTGRES_USER=myprouser
+      - POSTGRES_PASSWORD=pass123456A@
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+    networks:
+        - django_network
+    depends_on:
+      - db
+
+networks:
+  django_network:
+    name: django_network

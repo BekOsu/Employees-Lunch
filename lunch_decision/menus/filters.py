@@ -1,6 +1,5 @@
 from django_filters import rest_framework as filters
 from .models import Menu
-from django.utils import timezone
 
 
 class MenuFilter(filters.FilterSet):
@@ -9,4 +8,4 @@ class MenuFilter(filters.FilterSet):
     class Meta:
         model = Menu
         fields = {'date': ['exact'],
-}
+                  }

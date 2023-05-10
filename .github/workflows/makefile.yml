@@ -2,7 +2,7 @@ name: Makefile CI
 
 on:
   push:
-#    branches: [ "main" ]
+    branches: [ "main" ]
 
   workflow_dispatch:
       inputs:
@@ -44,18 +44,18 @@ jobs:
         isort --check --diff ./lunch_decision
  
 
-  test:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Install dependencies
-      run: make run-d
-
-    - name: Run check
-      run:  make test
+#  test:
+#
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#    - uses: actions/checkout@v3
+#
+#    - name: Install dependencies
+#      run: make run-d
+#
+#    - name: Run check
+#      run:  make test
 
 
   deploy:

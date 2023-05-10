@@ -10,10 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -25,7 +25,6 @@ SECRET_KEY = 'django-insecure-i4dbk6$too+3s_ns*a&fay!30ei1*actn=q7h@=0_s8!9qa4%n
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -47,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'drf_yasg',
+    'django_extensions',
     'rest_framework_simplejwt',
 
 ]
@@ -81,7 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'lunch_decision.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -95,7 +94,8 @@ DATABASES = {
         'NAME': 'myproject',
         'USER': 'myprouser',
         'PASSWORD': 'pass123456A@',
-        'HOST': 'db',
+        # 'HOST': 'db',
+        'HOST': '127.0.0.1',  # without docker
         'PORT': 5432,
 
     }
@@ -119,15 +119,41 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-REST_FRAMEWORK = {
-    # 'DEFAULT_AUTHENTICATION_CLASSES': [
-    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
-    # ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'VERIFYING_KEY': None,
+    'AUDIENCE': None,
+    'ISSUER': None,
+
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    'TOKEN_TYPE_CLAIM': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMGIydGxibDkwZVhCbElqb2lZV05qWlhOeklpd2laWGh3SWpveE5qZ3pOek00TWpnM0xDSnBZWFFpT2pFMk9ETTNNelEyT0Rjc0ltcDBhU0k2SWpBM09HWTJabUZpWXpOak9EUTBZV0poTXpCbU1EZ3daVEkzTVdFNVl6RTFJaXdpZFhObGNsOXBaQ0k2TkgwLmFOb0FwQ28tVXVRbjJzVnc5V0RWa091T28ta3JNZk55OE91a2VRV2IySlkiOiJhY2Nlc3MiLCJleHAiOjE2ODM3MzkwNzQsImlhdCI6MTY4MzczNTQ3NCwianRpIjoiZjI0MzgzMDcwYWVjNDY0YmIwMTUxYTNkNjkzMzNmYjciLCJ1c2VyX2lkIjo0fQ.Y7h0r_STsyD2pl2NrWijR23JLKspmPq8_YdswDcOHdM',
+
+    'JTI_CLAIM': 'jti',
+
+    'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
+    'SLIDING_TOKEN_LIFETIME': timedelta(minutes=60),
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+    ],
+
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
 # Internationalization
@@ -143,7 +169,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -151,5 +176,3 @@ STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

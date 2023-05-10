@@ -33,6 +33,120 @@
             
   <section id="employee-app">
 <h1>Employee App<a class="headerlink" href="#employee-app" title="Permalink to this heading">¶</a></h1>
+<p>Introduction
+This documentation outlines the available endpoints and functionality for the Employee API.</p>
+<p>Getting Started
+To use the Employee API, you will need to have an employee account created in the Lunch Place Decision app. Once you have your login credentials, you can access the following endpoints.</p>
+<p>Endpoints
+GET /api/employee/menus/{date}/</p>
+<p>bash
+Copy code</p>
+<p>Returns the menus for a specific date.</p>
+<ul class="simple">
+<li><p><cite>date</cite> (required): The date to retrieve menus for in the format <cite>YYYY-MM-DD</cite>.</p></li>
+</ul>
+<p>Example Response:</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>json
+[</p>
+<blockquote>
+<div><dl>
+<dt>{</dt><dd><p>&quot;id&quot;: 1,
+&quot;restaurant&quot;: {</p>
+<blockquote>
+<div><p>&quot;id&quot;: 1,
+&quot;name&quot;: &quot;Joe's Pizza&quot;,
+&quot;address&quot;: &quot;123 Main St&quot;</p>
+</div></blockquote>
+<p>},
+&quot;date&quot;: &quot;2023-05-10&quot;,
+&quot;items&quot;: &quot;Pizza, Salad, Breadsticks&quot;</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>&quot;id&quot;: 2,
+&quot;restaurant&quot;: {</p>
+<blockquote>
+<div><p>&quot;id&quot;: 2,
+&quot;name&quot;: &quot;Sushi Palace&quot;,
+&quot;address&quot;: &quot;456 Maple Ave&quot;</p>
+</div></blockquote>
+<p>},
+&quot;date&quot;: &quot;2023-05-10&quot;,
+&quot;items&quot;: &quot;Sushi, Miso Soup, Seaweed Salad&quot;</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<section id="id5">
+<h2>]<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<p>POST <cite>/api/employee/votes/{version}/</cite>
+Allows an employee to vote for a menu.</p>
+<p>version (required): The API version to use for voting (v1 or v2).
+employee (optional): The ID of the employee submitting the vote. Defaults to the currently authenticated user.
+votes (required): A list of up to 3 dictionaries, each representing a restaurant and the number of points to allocate to it.
+Example Request:</p>
+<p>json
+Copy code
+{</p>
+<blockquote>
+<div><dl>
+<dt>&quot;votes&quot;: [</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>&quot;restaurant_id&quot;: 1,
+&quot;points&quot;: 3</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>&quot;restaurant_id&quot;: 2,
+&quot;points&quot;: 2</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>&quot;restaurant_id&quot;: 3,
+&quot;points&quot;: 1</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>}
+Example Response:</p>
+<p>json
+Copy code
+{</p>
+<blockquote>
+<div><p>&quot;id&quot;: 1,
+&quot;employee&quot;: {</p>
+<blockquote>
+<div><p>&quot;id&quot;: 1,
+&quot;username&quot;: &quot;johndoe&quot;,
+&quot;email&quot;: &quot;<a class="reference external" href="mailto:johndoe&#37;&#52;&#48;example&#46;com">johndoe<span>&#64;</span>example<span>&#46;</span>com</a>&quot;</p>
+</div></blockquote>
+<p>},
+&quot;menu&quot;: {</p>
+<blockquote>
+<div><p>&quot;id&quot;: 1,
+&quot;restaurant&quot;: {</p>
+<blockquote>
+<div><p>&quot;id&quot;: 1,
+&quot;name&quot;: &quot;Joe's Pizza&quot;,
+&quot;address&quot;: &quot;123 Main St&quot;</p>
+</div></blockquote>
+<p>},
+&quot;date&quot;: &quot;2023-05-10&quot;,
+&quot;items&quot;: &quot;Pizza, Salad, Breadsticks&quot;</p>
+</div></blockquote>
+<p>},
+&quot;points&quot;: 3</p>
+</div></blockquote>
+<p>}
+Conclusion
+The Employee API provides functionality for retrieving menus for a specific date and submitting votes for those menus. By using the endpoints provided in this documentation, employees can efficiently make decisions about where to eat for lunch.</p>
+</section>
 </section>
 
 
@@ -55,7 +169,10 @@
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="UserAuth.html">User Authentication</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Employee App</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Employee App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id5">]</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="menus.html">Menus App</a></li>
 <li class="toctree-l1"><a class="reference internal" href="restaurants.html">Restaurants App</a></li>
 </ul>

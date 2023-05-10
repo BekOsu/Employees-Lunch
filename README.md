@@ -140,6 +140,14 @@ API documentation is available at **`http://127.0.0.1:8000/swagger/`**.
 
 This provides a detailed overview of the available API endpoints, including their input and output formats.
 
+## **Sphinx Documentation**
+
+To access the documentation for this project, please go to http://localhost:63342/employees-lunch/docs/_build/html/index.html.
+The documentation is generated using Sphinx and covers User Authentication, Restaurants, Menus, and Employee API endpoints.
+
+The HTML pages are in:
+ ** /docs/_build/html **.
+
 ## **Tests**
 
 To run the test suite, execute the following command:

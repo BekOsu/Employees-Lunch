@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "lunch_decision"
+version = "0.1.0"
+description = "A Python project"
+authors = ["Abu <abubaker.asuliman@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9.0"
+django = "^3.2.0"
+requests = "^2.26.0"
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true

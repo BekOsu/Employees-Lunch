@@ -2,7 +2,7 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 # To set up pre-commit for the first time, see: https://wiki.asml.com/wiki/confluence/display/SDT/Testing
-exclude: '^libs/|.*test_data/|fancybox_core.css|.min.js$|.pub$|.txt$|.csv$|.xml$'
+exclude: '^libs/|.*test_data/|.lunch_decision.js$|.pub$|.txt$|.csv$|.xml$'
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
@@ -13,7 +13,7 @@ repos:
       - id: check-symlinks
       - id: requirements-txt-fixer
       - id: trailing-whitespace
-        exclude: test_mysql_polluter.py
+        exclude: test_postgres_polluter.py
       - id: end-of-file-fixer
       - id: debug-statements
         exclude: static|src/tar_mail/tests/test_tar_mail_creator.py
@@ -31,7 +31,7 @@ repos:
     rev: 22.6.0
     hooks:
       - id: black
-        exclude: constants/const.py|src/mysql/tests/test_controller.py|src/reschedule/reschedule_tb_smokes.py|src/reschedule/run_check.py|src/reschedule/tests/test_reschedule_tb_smokes.py|src/reschedule/tests/test_run_check.py|src/stats/statistic.py|src/overview/create_html.py|src/overview/tests/test_overview_page.py|src/stats/tests/test_new_gression.py|src/stats/tests/test_autotesters_html.py|src/tb_results/tb_queue_status.py|src/qbl_reports/tests/test_create_ta_result_html.py|src/tb_results/tests/test_tb_result_controller.py|src/stats/tests/test_statistic.py|src/tar_mail/tests/test_tar_mail_creator.py
+        exclude: constants/const.py|src/postgres/tests/test_controller.py|src/reschedule/reschedule_tb_smokes.py|src/reschedule/run_check.py|src/reschedule/tests/test_reschedule_tb_smokes.py|src/reschedule/tests/test_run_check.py|src/stats/statistic.py|src/overview/create_html.py|src/overview/tests/test_overview_page.py|src/stats/tests/test_new_gression.py|src/stats/tests/test_autotesters_html.py|src/tb_results/tb_queue_status.py|src/qbl_reports/tests/test_create_ta_result_html.py|src/tb_results/tests/test_tb_result_controller.py|src/stats/tests/test_statistic.py|src/tar_mail/tests/test_tar_mail_creator.py
         args: [--safe, --quiet]
   - repo: https://github.com/asottile/add-trailing-comma
     rev: v2.2.3
@@ -42,7 +42,7 @@ repos:
     rev: 3.9.2
     hooks:
     - id: flake8
-      exclude: constants/const.py|src/mysql/tests/test_controller.py|src/reschedule/reschedule_tb_smokes.py|src/reschedule/run_check.py|src/reschedule/tests/test_reschedule_tb_smokes.py|src/reschedule/tests/test_run_check.py|src/stats/statistic.py|src/overview/create_html.py|src/overview/tests/test_overview_page.py|src/stats/tests/test_new_gression.py|src/stats/tests/test_autotesters_html.py|src/tb_results/tb_queue_status.py|src/qbl_reports/tests/test_create_ta_result_html.py|src/tb_results/tests/test_tb_result_controller.py|src/stats/tests/test_statistic.py|src/tar_mail/tests/test_tar_mail_creator.py
+      exclude: constants/const.py|src/postgres/tests/test_controller.py|src/reschedule/reschedule_tb_smokes.py|src/reschedule/run_check.py|src/reschedule/tests/test_reschedule_tb_smokes.py|src/reschedule/tests/test_run_check.py|src/stats/statistic.py|src/overview/create_html.py|src/overview/tests/test_overview_page.py|src/stats/tests/test_new_gression.py|src/stats/tests/test_autotesters_html.py|src/tb_results/tb_queue_status.py|src/qbl_reports/tests/test_create_ta_result_html.py|src/tb_results/tests/test_tb_result_controller.py|src/stats/tests/test_statistic.py|src/tar_mail/tests/test_tar_mail_creator.py
   - repo: local
     hooks:
       - id: pylint
@@ -52,7 +52,7 @@ repos:
         types: [python]
         args:
         - --rcfile=devtools/pylint.rc
-        files: src|scripts|constants
+        files: lunch_decision|scripts|constants
         exclude: conftest.py|test(_.*).py
       - id: pylint
         name: pylint_unittest
@@ -61,6 +61,6 @@ repos:
         types: [python]
         args:
         - --rcfile=devtools/pylint_unittests.rc
-        files: (src|scripts|constants)(/.*)+/tests/conftest.py|(src|scripts|constants)(/.*)+/tests
+        files: (lunch_decision|scripts|constants)(/.*)+/tests/conftest.py|(src|scripts|constants)(/.*)+/tests
 
 

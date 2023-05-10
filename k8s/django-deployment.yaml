@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lunch-decision
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lunch-decision
+  template:
+    metadata:
+      labels:
+        app: lunch-decision
+    spec:
+      containers:
+      - name: lunch-decision
+        image: lunch-decision:latest
+        command: [ "gunicorn", "lunch-decision.wsgi:application", "-b", "0.0.0.0:8000", "--workers", "3" ]
+
+        ports:
+        - containerPort: 8000
+        env:
+        - name: POSTGRES_DB
+          value: myproject
+        - name: POSTGRES_USER
+          value: myprouser
+        - name: POSTGRES_PASSWORD
+          value: pass123456A@
+        - name: POSTGRES_HOST
+          value: db
+        - name: POSTGRES_PORT
+          value: "5432"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "500m"
+          limits:
+            memory: "512Mi"
+            cpu: "1000m"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: lunch-decision-pvc
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lunch-decision
+spec:
+  selector:
+    app: lunch-decision
+  ports:
+  - name: http
+    port: 8000
+    targetPort: 8000
+  type: ClusterIP

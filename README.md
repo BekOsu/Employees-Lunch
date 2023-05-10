@@ -44,6 +44,7 @@ Run docker-compose up to start the development server.
 * RestFramework
 * open API and swagger.
 * docker with Docker compose.
+* kubernetes.
 * makefile.
 * Logs.
 * Schedule Tasks (Django Q) 

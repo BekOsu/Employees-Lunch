@@ -27,7 +27,6 @@ This Django application provides an internal service for employees to vote for l
 1. Clone the repository:
 
 ```
-bashCopy code
 git clone https://github.com/BekOsu/employees-lunch.git
 
 ```
@@ -75,6 +74,8 @@ This project uses pre-commit hooks to ensure code quality and consistency. The f
 ## CI/CD:
 #### Two steps: Build with tests, then Deploy.
 #### I commented the part of pushing the images to DockerHub then uploading it to the cloud but, you can easily uncomment that to make it work.
+![Screenshot from 2023-05-11 00-58-37](https://github.com/BekOsu/employees-lunch/assets/95960598/71ec17b9-6daa-493a-ad97-87da9e8497e0)
+
 
 ## **API Endpoints**
 
@@ -131,6 +132,8 @@ for the second, and 1 point for the third).
 API documentation is available at **`http://127.0.0.1:8000/swagger/`**.
 
 This provides a detailed overview of the available API endpoints, including their input and output formats.
+
+![Screenshot from 2023-05-11 01-02-56](https://github.com/BekOsu/employees-lunch/assets/95960598/183e4b9a-f107-4b28-ad63-1071007f5725)
 
 ## **Sphinx Documentation**
 

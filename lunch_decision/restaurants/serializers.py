@@ -8,7 +8,7 @@ class RestaurantOwnerSerializer(ProfileSerializer):
 
     class Meta(ProfileSerializer.Meta):
         model = RestaurantOwner
-        fields = ProfileSerializer.Meta.fields + ['user', 'is_restaurant_owner']
+        fields = ProfileSerializer.Meta.fields + ['is_restaurant_owner']
         read_only_fields = ['id', 'is_restaurant_owner']
 
     def create(self, validated_data):

@@ -5,7 +5,7 @@ from employee.models import Employee
 
 class IsRestaurantOwner(permissions.BasePermission):
     def has_permission(self, request, view):
-        # print("user rest : ", request.user)
+        print("user rest : ", request.user)
 
         if request.user.is_authenticated and RestaurantOwner.objects.filter(user=request.user).exists():
             return True

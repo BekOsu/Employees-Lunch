@@ -15,13 +15,11 @@ from drf_yasg import openapi
 class EmployeeList(generics.ListCreateAPIView):
     serializer_class = EmployeeSerializer
     queryset = Employee.objects.all()
-    permission_classes = [AllowAny]
 
 
 class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
-    permission_classes = [AllowAny]
 
 
 class VoteList(generics.CreateAPIView):

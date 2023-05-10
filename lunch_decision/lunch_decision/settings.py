@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'drf_yasg',
-    'django_extensions',
     'rest_framework_simplejwt',
 
 ]
@@ -82,11 +81,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'lunch_decision.wsgi.application'
 
 # Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': dj_database_url.config(conn_max_age=600)
-# }
 
 DATABASES = {
     'default': {
@@ -94,8 +88,8 @@ DATABASES = {
         'NAME': 'myproject',
         'USER': 'myprouser',
         'PASSWORD': 'pass123456A@',
-        # 'HOST': 'db',
-        'HOST': '127.0.0.1',  # without docker
+        'HOST': 'db',
+        # 'HOST': '127.0.0.1',  # without docker
         'PORT': 5432,
 
     }
@@ -150,7 +144,8 @@ SIMPLE_JWT = {
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        # 'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication',
+
     ],
 
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],

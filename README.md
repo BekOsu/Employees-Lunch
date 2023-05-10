@@ -7,29 +7,20 @@ This Django application provides an internal service for employees to vote for l
 ## **Table of Contents**
 
 1. Features
-2. Prerequisites
-3. Installation
-4. Running the Application
-5. API Documentation
-6. Tests
+2. Installation
+3. Running the Application
+4. API Documentation
+5. Tests
 
 ## **Features**
 
-- Registration and authentication for employees, restaurant owners, and administrators.
+- Registration and authentication for employees, restaurant owners, and administrators (Both Basic Auth and JWT can be used for authentication).
 - Restaurant management (create, list)
 - Menu management (create, list daily menus)
 - Employee management (create, list)
 - Voting system (different behaviors for old and new app versions)
 - Containerization (Docker)
 
-## **Prerequisites**
-
-- Python 3
-- Django
-- Django REST Framework
-- PostgreSQL
-- Docker
-- Git
 
 ## **Installation**
 
@@ -41,48 +32,49 @@ git clone https://github.com/BekOsu/employees-lunch.git
 
 ```
 
-1. Change to the project directory:
+2. Start the application using Docker Compose:
 
 ```
-bashCopy code
-cd lunch_decision
-
-```
-
-1. Set up a virtual environment and activate it:
-
-```
-bashCopy code
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-
-```
-
-1. Install the dependencies:
-
-```
-Copy code
-pip install -r requirements.txt
-
-```
-
-1. Apply the database migrations:
-
-```
-Copy code
-python manage.py migrate
-
-```
-
-## **Running the Application**
-
-1. Start the application using Docker Compose:
-
-```
-Run docker-compose build to build the Docker images.docker-compose up
+Run docker-compose build to build the Docker images.
 Run docker-compose up to start the development server.
 
 ```
+
+## Technology Stack & Features:
+* Django fresh build
+* RestFramework
+* open API and swagger.
+* docker with Docker compose.
+* makefile.
+* Logs.
+* Schedule Tasks (Django Q) 
+* Custom exception handler
+* CI/CD Pipeline.
+
+### **Pre-commit Hooks**
+
+This project uses pre-commit hooks to ensure code quality and consistency. The following hooks are used:
+
+- **`flake8`**
+- **`isort`**
+- **`black`**
+- **`pylint_regular`**
+- **`pylint_unittest`**
+- **`sort-simple-yaml`**
+- **`check-added-large-files`**
+- **`check-case-conflict`**
+- **`check-symlinks`**
+- **`requirements-txt-fixer`**
+- **`trailing-whitespace`**
+- **`end-of-file-fixer`**
+- **`debug-statements`**
+- **`fix-encoding-pragma`**
+- **`mixed-line-ending`**
+- **`add-trailing-comma`**
+
+## CI/CD:
+#### Two steps: Build with tests, then Deploy.
+#### I commented the part of pushing the images to DockerHub then uploading it to the cloud but, you can easily uncomment that to make it work.
 
 ## **API Endpoints**
 

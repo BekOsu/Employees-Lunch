@@ -170,7 +170,7 @@ Please refer to the API documentation for more details on the usage of each endp
 
 ## **HA Cloud Architecture overview:**
 
-                                    ┌───────────────┐                               
+                                    ┌───────────────┐
                                     │   Frontend    │
                                     │  (Mobile App) │
                                     └───────────────┘
@@ -186,31 +186,26 @@ Please refer to the API documentation for more details on the usage of each endp
                                     │    Backend    │
                                     │    Server     │
                                     └───────────────┘
-                                            │
-                            ┌───────────────┴───────────────┐
-                            ▼                               ▼
+                                           │
+                           ┌───────────────┴───────────────┐
+                           ▼                               ▼
                ┌───────────────────────┐        ┌───────────────────────┐
-               │    Django Rest        │        │    Menu Management    │
+               │    Django Rest        │        │   Menu Management     │
                │   Framework Views     │        │       Service         │
                └───────────────────────┘        └───────────────────────┘
                             │                               │
                             ▼                               ▼
                ┌───────────────────────┐        ┌───────────────────────┐
-               │     Authentication    │        │    Menu Management    │
+               │  Authentication       │        │   Vote Management     │
                │       Service         │        │       Service         │
                └───────────────────────┘        └───────────────────────┘
                             │                               │
                             ▼                               ▼
                ┌───────────────────────┐        ┌───────────────────────┐
-               │     Data Management   │        │     Vote Management   │
-               │       Service         │        │       Service         │
+               │     Data Management   │        │     External APIs     │
+               │       Service         │        │                       │
                └───────────────────────┘        └───────────────────────┘
-                            │                               │
-                            ▼                               ▼
-               ┌───────────────────────┐        ┌───────────────────────┐
-               │     Database Storage  │        │     External APIs     │
-               │    (Azure Blob, etc.) │        │                       │
-               └───────────────────────┘        └───────────────────────┘
+
 This is an overview of the architecture for the internal service, which enables employees to make decisions on lunch
 places. The service consists of the following components:
 

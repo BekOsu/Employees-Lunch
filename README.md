@@ -11,6 +11,7 @@ This Django application provides an internal service for employees to vote for l
 3. Running the Application
 4. API Documentation
 5. Tests
+6. HA Cloud Architecture Schema/Diagram.
 
 ## **Features**
 
@@ -165,6 +166,67 @@ python manage.py test
 5. The voting results for the current day can be retrieved using the **`/employees/api/today-top-menus/`** endpoint, which returns the aggregated points for each restaurant.
 
 Please refer to the API documentation for more details on the usage of each endpoint.
+
+## **HA Cloud Architecture overview:**
+
+                                    ┌───────────────┐                               
+                                    │   Frontend    │
+                                    │  (Mobile App) │
+                                    └───────────────┘
+                                           │
+                                           ▼
+                                    ┌───────────────┐
+                                    │     API       │
+                                    │   Gateway     │
+                                    └───────────────┘
+                                           │
+                                           ▼
+                                    ┌───────────────┐
+                                    │    Backend    │
+                                    │    Server     │
+                                    └───────────────┘
+                                            │
+                            ┌───────────────┴───────────────┐
+                            ▼                               ▼
+               ┌───────────────────────┐        ┌───────────────────────┐
+               │    Django Rest        │        │    Menu Management    │
+               │   Framework Views     │        │       Service         │
+               └───────────────────────┘        └───────────────────────┘
+                            │                               │
+                            ▼                               ▼
+               ┌───────────────────────┐        ┌───────────────────────┐
+               │     Authentication    │        │    Menu Management    │
+               │       Service         │        │       Service         │
+               └───────────────────────┘        └───────────────────────┘
+                            │                               │
+                            ▼                               ▼
+               ┌───────────────────────┐        ┌───────────────────────┐
+               │     Data Management   │        │     Vote Management   │
+               │       Service         │        │       Service         │
+               └───────────────────────┘        └───────────────────────┘
+                            │                               │
+                            ▼                               ▼
+               ┌───────────────────────┐        ┌───────────────────────┐
+               │     Database Storage  │        │     External APIs     │
+               │    (Azure Blob, etc.) │        │                       │
+               └───────────────────────┘        └───────────────────────┘
+This is an overview of the architecture for the internal service, which enables employees to make decisions on lunch
+places. The service consists of the following components:
+
+- **Frontend**: Represents the mobile app used by employees to interact with the service.
+- **API Gateway**: Acts as a central entry point for requests, handling routing, security, and versioning.
+- **Backend Server**: Responsible for handling the business logic and processing requests from the API Gateway.
+- **Django Rest Framework Views**: Implements API endpoints and handles incoming requests.
+- **Authentication Service**: Manages user authentication and permissions.
+- **Menu Management Service**: Handles restaurant menus, including upload, retrieval, and storage.
+- **Vote Management Service**: Handles employee voting for menus and aggregation of votes.
+- **Data Management Service**: Manages data related to the service, including validation, storage, and access.
+- **Database Storage**: Utilizes Azure Blob Storage or similar service for additional data storage.
+- **External APIs**: Allows integration with external services for additional functionalities or data access.
+
+This architecture follows a client-server model, with the mobile app as the client and the backend server handling
+the business logic. The API Gateway ensures secure and efficient request handling, and various services manage specific
+functionalities, such as authentication, menu management, and data storage.
 
 ## **Future Work:**
 

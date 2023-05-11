@@ -51,6 +51,7 @@ Run docker-compose up to start the development server.
 * Schedule Tasks (Django Q) 
 * Custom exception handler
 * CI/CD Pipeline.
+* Linting and Static typing tools.
 
 ### **Pre-commit Hooks**
 
@@ -229,10 +230,10 @@ the business logic. The API Gateway ensures secure and efficient request handlin
 functionalities, such as authentication, menu management, and data storage.
 
 ## **Future Work:**
-
-- Adding more features to the app, such as the ability for employees to add their own restaurant suggestions, and for restaurant owners to provide more detailed information about their menus.
-- Implementing HA (High Availability) cloud architecture to ensure that the app can handle increased traffic and maintain uptime during periods of high usage. A detailed diagram of the proposed architecture (preferably using Azure) can be included.
-- Utilizing linting and static typing tools to ensure that the code is consistent, readable, and free of errors. This can improve code quality and make it easier for future developers to maintain the codebase.
+Explore additional features like user suggestions and detailed restaurant information, and incorporate technologies 
+such as Django signals, Redis, Celery, scheduled tasks, custom exception handling, message broker (Kafka, RabbitMQ), 
+Nginx API gateway, service registry (e.g., Eureka), notification service, 
+and design patterns (Pub-Sub, Adapter, Factory, Singleton).
 
 ## **Contributors**
 

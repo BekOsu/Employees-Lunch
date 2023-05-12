@@ -140,7 +140,7 @@ This provides a detailed overview of the available API endpoints, including thei
 
 ## **Sphinx Documentation**
 
-To access the documentation for this project, please go to http://localhost:63342/employees-lunch/docs/_build/html/index.html.
+To access the documentation for this project, please go to http://localhost:63342/employees-lunch/docs/_build/html/index.html
 The documentation is generated using Sphinx and covers User Authentication, Restaurants, Menus, and Employee API endpoints.
 
 The HTML pages are in:

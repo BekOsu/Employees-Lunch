@@ -88,8 +88,8 @@ DATABASES = {
         'NAME': 'myproject',
         'USER': 'myprouser',
         'PASSWORD': 'pass123456A@',
-        'HOST': 'db',
-        # 'HOST': '127.0.0.1',  # without docker
+        # 'HOST': 'db',
+        'HOST': '127.0.0.1',  # without docker
         'PORT': 5432,
 
     }

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="None">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Menus App &#8212; lunch_decision 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Restaurants App" href="restaurants.html" />
+    <link rel="prev" title="Employee App" href="employee.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="menus-app">
+<h1>Menus App<a class="headerlink" href="#menus-app" title="Permalink to this heading">¶</a></h1>
+<p>This section provides an overview of the Menus app in the Lunch Place Decision system.</p>
+<p>Introduction
+The Menus app is responsible for managing menus and menu items for the restaurants in the Lunch Place Decision system. It allows Restaurant Owners to add and modify their menus for different dates, and also provides functionality for Employees to view the menus and vote for their preferred options.</p>
+<p>Usage
+Creating a menu: Restaurant Owners can create a new menu by submitting a POST request to the /api/v1/menus/ endpoint with the appropriate data. They can specify the restaurant ID, the date for the menu, and the menu items.</p>
+<p>Updating a menu: Restaurant Owners can update an existing menu by submitting a PUT request to the /api/v1/menus/{menu_id}/ endpoint with the updated data. They can modify any of the fields in the menu.</p>
+<p>Deleting a menu: Restaurant Owners can delete an existing menu by submitting a DELETE request to the /api/v1/menus/{menu_id}/ endpoint.</p>
+<p>Viewing menus: Employees can view the menus for a specific date by submitting a GET request to the /api/v1/menus/?date={date} endpoint, where date is the desired date in YYYY-MM-DD format.</p>
+<p>Voting for a menu: Employees can vote for their preferred menu items by submitting a POST request to the /api/v1/menus/vote/ endpoint. In the old version (v1) of the API, they can only vote for one menu item with 3 points. In the new version (v2), they can vote for up to three menu items and allocate points based on their preference (3 points for the top item, 2 points for the second, and 1 point for the third).</p>
+<p>Endpoints
+/api/v1/menus/: Allows CRUD operations on menus.</p>
+<p>/api/v1/menus/vote/: Allows employees to vote for menu items.</p>
+<p>Models
+Menu: Represents a menu in the system. Includes fields for the restaurant ID, the date, and the menu items.</p>
+<p>MenuItem: Represents a single item in a menu. Includes fields for the name, description, and price.</p>
+<p>Permissions
+Restaurant Owner: Can create, read, update, and delete menus for their own restaurant.</p>
+<p>Employee: Can read menus and vote for menu items.</p>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">lunch_decision</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="UserAuth.html">User Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="employee.html">Employee App</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Menus App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restaurants.html">Restaurants App</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="employee.html" title="previous chapter">Employee App</a></li>
+      <li>Next: <a href="restaurants.html" title="next chapter">Restaurants App</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, abu.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/menus.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

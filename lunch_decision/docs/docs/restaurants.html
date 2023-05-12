@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="None">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Restaurants App &#8212; lunch_decision 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Menus App" href="menus.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="restaurants-app">
+<h1>Restaurants App<a class="headerlink" href="#restaurants-app" title="Permalink to this heading">¶</a></h1>
+<p>Introduction
+This documentation outlines the Restaurants API of the Lunch Place Decision app. It explains the different endpoints available and the parameters that can be used to make requests.</p>
+<p>Endpoints
+The following endpoints are available in the Restaurants API:</p>
+<p>GET /restaurants/: Retrieves a list of all restaurants.
+POST /restaurants/: Creates a new restaurant.
+GET /restaurants/{restaurant_id}/: Retrieves details for a specific restaurant.
+PUT /restaurants/{restaurant_id}/: Updates a specific restaurant.
+DELETE /restaurants/{restaurant_id}/: Deletes a specific restaurant.
+Parameters
+When making requests to the Restaurants API, the following parameters can be used:</p>
+<p>name: The name of the restaurant.
+address: The address of the restaurant.
+phone_number: The phone number of the restaurant.
+website: The website URL of the restaurant.
+owner: The ID of the Restaurant Owner who owns the restaurant.
+Permissions
+To access the Restaurants API, a user must be authenticated as a Restaurant Owner. This means that they must have an account with the is_restaurant_owner flag set to True.</p>
+<p>Examples
+The following examples show how to make requests to the Restaurants API:</p>
+<p>To retrieve a list of all restaurants:
+bash
+Copy code
+GET /restaurants/
+To create a new restaurant:
+bash
+Copy code
+POST /restaurants/</p>
+<dl class="simple">
+<dt>{</dt><dd><p>&quot;name&quot;: &quot;Example Restaurant&quot;,
+&quot;address&quot;: &quot;123 Main St&quot;,
+&quot;phone_number&quot;: &quot;555-1234&quot;,
+&quot;website&quot;: &quot;<a class="reference external" href="https://www.example.com/">https://www.example.com/</a>&quot;,
+&quot;owner&quot;: 1</p>
+</dd>
+</dl>
+<p>}
+To retrieve details for a specific restaurant:
+bash
+Copy code
+GET /restaurants/1/
+To update a specific restaurant:
+bash
+Copy code
+PUT /restaurants/1/</p>
+<dl class="simple">
+<dt>{</dt><dd><p>&quot;name&quot;: &quot;Updated Restaurant Name&quot;,
+&quot;address&quot;: &quot;456 Main St&quot;,
+&quot;phone_number&quot;: &quot;555-5678&quot;,
+&quot;website&quot;: &quot;<a class="reference external" href="https://www.updated-example.com/">https://www.updated-example.com/</a>&quot;,
+&quot;owner&quot;: 1</p>
+</dd>
+</dl>
+<p>}
+To delete a specific restaurant:
+bash
+Copy code
+DELETE /restaurants/1/</p>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">lunch_decision</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="UserAuth.html">User Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="employee.html">Employee App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Menus App</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Restaurants App</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="menus.html" title="previous chapter">Menus App</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, abu.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/restaurants.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

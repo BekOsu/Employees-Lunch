@@ -132,7 +132,7 @@ for the second, and 1 point for the third).
 
 ## **API Documentation**
 
-API documentation is available at **`http://127.0.0.1:8000/swagger/`**.
+API documentation is available at http://127.0.0.1:8000/swagger 
 
 This provides a detailed overview of the available API endpoints, including their input and output formats.
 
